@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                echo $params.Env
+                echo params.Env
             }
         }
     }
