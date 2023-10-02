@@ -16,6 +16,6 @@ resource "aws_instance" "bastianEc2" {
               E0F
 
   provisioner "local-exec" {
-    command = "echo The Bastian's IP address is ${self.public_ip} > Bastian-pub-ip"
+    command = "echo The Bastian IP address is ${self.public_ip} > Bastian-pub-ip"
   }
 }
