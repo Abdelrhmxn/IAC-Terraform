@@ -15,20 +15,20 @@ pipeline {
         //         sh "terraform init"
         //     }
         // }
-        // stage('Select Workspace'){
-        //     steps{
-        //         withCredentials([usernamePassword(credentialsId: 'aws', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-        //             script{
-        //                 if (params.Env == 'Dev') {   
-        //                     sh "echo $AWS_ACCESS_KEY_ID"
-        //                 } else {
-        //                     sh "echo $AWS_ACCESS_KEY_ID"
-        //                 }
-        //             }
-        //         }
+        stage('Select Workspace'){
+            steps{
+                withCredentials([usernamePassword(credentialsId: 'aws', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                    script{
+                        if (params.Env == 'Dev') {   
+                            sh "echo $AWS_ACCESS_KEY_ID"
+                        } else {
+                            sh "echo $AWS_ACCESS_KEY_ID"
+                        }
+                    }
+                }
 
-        //     }
-        // }
+            }
+        }
         // stage('Terraform Apply'){
         //     steps{
         //         script{
